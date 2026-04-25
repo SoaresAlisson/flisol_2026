@@ -1,0 +1,464 @@
+---
+title: Python _versus_ R? Python no R!  
+subtitle: Utilizando pacotes Python no R com o Reticulate
+abstract: Python, R são duas das principais linguagens de programação utilizadas em ciência e análise de dados. Há vantagens e desvantagens em cada uma, a depender da tarefa. O R é uma linguagem funcional, feita por estatísticos, com pipe e que possui código mais conciso. Python é orientada a objetos, multi propósito, que possui a maioria de ferramentas avançadas de Processamento de Linguagem Natural, Machine Learning e Inteligência Artificial. Há quem prefira utilizar ambas linguagens em diferentes partes do processo e há diferentes modos de integrar ambas. Vamos focar aqui no uso de Python dentro do R com o pacote Reticulate do R. Vamos aprender como traduzir objetos de uma linguagem a outra, como usar funções Python quase como se fossem funções nativas do R. O formato Quarto, uma variante de markdown também de código aberto voltada para código, permite transicionar facilmente entre as duas.
+author: Alisson Soares
+date: 2026-04-25
+logo:
+  alt: FliSoL 
+lang: pt
+color-links: true # See https://ctan.org/pkg/xcolor for colors
+linkcolor: green
+urlcolor: blue
+citecolor: black
+execute:
+  # echo: true 
+  echo: fenced
+  warning: false
+  message: false
+title-slide-attributes:
+  data-background-image: img/reticulate.png 
+  data-background-size: contain
+  data-background-opacity: "0.10"
+  # quarto add andrewheiss/language-name
+format:
+  revealjs:
+    slide-number: true
+    transition: slide
+    incremental: true   
+    scrollable: true
+    preview-links: auto
+    #theme: dark
+    # footer: '[https://{{< meta prerelease-subdomain >}}quarto.org](https://{{< meta prerelease-subdomain >}}quarto.org)'
+    footer: 'FlISoL 2026 - "Python _versus_ R? Python no R!" - Alisson Soares'
+css: style.css
+--- 
+
+
+```{r start}
+#| echo: false
+reticulate::use_virtualenv("uv_nlp_314")
+```
+
+{{< include lei_softwarelivre.qmd >}}
+
+# Sobre mim 
+
+Formado em Sociologia pela UFMG, vem atuando com ciência social computacional, análise textual computacional e Processamento de Linguagem Natural, autor de pacotes no R, usuário de Linux desde 2013 e defensor de Neovim e do i3wm.
+
+
+# Comparações Python e R
+
+::: {.fragment .strike}
+- R é linguagem funcional, Python é POO
+:::
+
+- R é predominantemente funcional, Python é predominantemente POO
+- R é vetorizado, o que significa menos for loops, menos código escrito 
+
+- R possui pipe nativo e o magrittr
+
+- Abrir arquivo no Python
+
+- Muitas pessoas preferem não escolher entre uma e outra, mas usar ambas em diferentes partes do workflow.
+
+## Popularidade de Linguagens
+
+![popularidade de linguagens de programação](img/popularity_prog_lang_2026.04.png)
+
+> The PYPL PopularitY of Programming Language Index is created by analyzing how often language tutorials are searched on Google.
+
+
+## OOP no R
+https://adv-r.hadley.nz/oo.html
+https://bookdown.org/rdpeng/RProgDA/object-oriented-programming.html
+https://cran.r-project.org/doc/manuals/R-lang.html#Object_002doriented-programming 
+nativos: 
+
+[S3](https://www.programiz.com/r/s3), [S4](https://www.programiz.com/r/s4)
+pacote adicional: 
+[S7](https://cran.r-project.org/web/packages/S7/index.html)
+R5
+[R6](https://r6.r-lib.org/articles/Introduction.html), 
+R7 e 
+RC (Reference Class), 
+[s7](https://rconsortium.github.io/S7/articles/S7.html) 
+class() 
+method()
+
+- encapsulated OOP - 
+In encapsulated OOP, methods belong to objects or classes, and method calls typically look like object.method(arg1, arg2). This is called encapsulated because the object encapsulates both data (with fields) and behaviour (with methods), and is the paradigm found in most popular languages.
+
+- functional OOP - 
+In functional OOP, methods belong to generic functions, and method calls look like ordinary function calls: generic(object, arg2, arg3). This is called functional because from the outside it looks like a regular function call, and internally the components are also functions.
+
+## Funcional em Python
+https://docs.python.org/3/howto/functional.html
+https://github.com/sfermigier/awesome-functional-python
+
+```{python py iter}
+m = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
+     'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
+
+for key in m:
+    print(key, m[key])
+
+iter(m)
+```
+
+## Ex. Regressão linear 
+
+## NLP e Machine learning 
+torch
+
+## R e Pandas
+
+:::: {.columns}
+
+::: {.column width="40%"}
+R
+```{r ex r}
+df <- data.frame(i=1:10, 
+  col1=letters[1:10])
+
+df$col2 <- df$i + 10
+
+df
+
+df[1:5,"col1"]
+```
+:::
+
+::: {.column width="60%"}
+Python
+```{python ex.py pandas}
+import pandas as pd
+
+df = pd.DataFrame({
+    'i': range(1, 11),
+    'col1': [chr(ord('a') + i) for i in range(10)]
+})
+
+df['col2'] = df['i'] + 10
+
+print(df) # Display dataframe
+
+df.loc[0:4, 'col1']
+```
+:::
+
+::::
+
+## R base x tidyverse
+
+:::: {.columns}
+
+::: {.column width="50%"}
+R Base
+```{r ex.R base}
+df <- data.frame(i=1:30, 
+  col1=letters[1:30])
+
+df$col2 <- df$i + 10
+
+df
+
+df[1:5,"col1"]
+```
+:::
+
+::: {.column width="50%"}
+R - tidyverse 
+```{r ex.tidy}
+library(dplyr)
+df <- tibble::tibble(
+  i = 1:30, 
+  col1 = letters[1:30]) |> 
+  mutate(col2 = i+10)
+
+df
+
+df |> 
+  slice(1:5) |> 
+  select(col1)
+```
+:::
+::::
+
+
+
+# O pacote Reticulate 
+
+![reticulate](img/reticulate.png)
+
+
+O reticulate usa a versão do Python que estiver no seu PATH (`Sys.which("python")`)
+Para especificar qual python env utilizar, usar `use_python()` e suas variações.
+
+```{r load libs reticulate}
+library(reticulate)
+# utilizando meu env UV que está na pasta virtualenv
+use_virtualenv("uv_nlp_314")
+```
+. . .
+
+```{r testando python}
+# Qual Python está sendo utilizado:
+reticulate::py_config()$python
+```
+. . . 
+```{r py_eval 1+1}
+# rodando algo em Python a partir do R
+reticulate::py_eval("1+1")
+
+```
+
+## Obtendo ajuda
+```{r }
+#py_help("print")
+
+os <- import("os")
+py_help(os$chdir)
+```
+
+## sourcing 
+Sourcing Scripts. Dado o script `add.py`:
+
+```{python add.py}
+#| eval: false
+def add(x, y):
+  print("the sum of", x, "and", y, "is", x+y)
+
+```
+. . .
+
+Chamando-o dentro do R
+````{verbatim}
+```{r}
+source_python('add.py')
+add(5, 10)
+```
+````
+```{r }
+#| echo: false 
+source_python('add.py')
+add(5, 10)
+```
+
+## Executando código 
+A partir de arquivo
+```{r run file}
+#| eval: false
+library(reticulate)
+
+py_run_file("meu_script.py")
+```
+. . .
+
+Diretamente a partir de código 
+```{r run_string}
+py_run_string("x = 10 + 10")
+py_run_string("print(x)")
+```
+--- 
+
+![meme: 6h de debugging podem te livrar de 5 min lendo a documentação](img/debugging_read_the_docs.jpg)
+
+## Obtendo ajuda
+
+```{r }
+# Python: import os as os
+os <- import("os")
+os$listdir(".")
+```
+
+## Objetos
+
+Acessar objetos do Python no R com `reticulate::py$` ou `py$`
+
+```{python atribuindo variável}
+from_py = "Olá! Sou um valor vindo do Python"
+print(from_py)
+```
+. . .  
+
+```{r variavel py to r}
+varia <- py$from_py
+```
+. . .  
+```{r testando a variável no R}
+varia
+
+varia |> toupper()
+strsplit(varia, " ")
+
+varia |>
+  gsub(x = _, "Sou", "Eu era") |>
+  paste0(x = _, ". Mas agora estou dentro do R!")
+```
+---
+
+Acessar objetos R no Python com `r.`
+
+```{r nova variavel do R}
+from_r <- "Olá, sou uma string originária do R."
+from_r
+```
+```{python print var do R}
+print(r.from_r.upper())
+print(r.from_r.rsplit())
+```
+
+## Salvando objetos Python a partir do R 
+Utilizando [Pickle](https://docs.python.org/3/library/pickle.html).
+```{r }
+#| eval: false
+py_save_object(objeto, nome_de_arquivo, ...)
+py_load_object(nome_de_arquivo)
+```
+
+
+# Quarto
+
+![quarto website](img/quarto.png)
+https://quarto.org/
+
+## instalação 
+```{bash quarto install arch}
+#| eval: FALSE
+yay -S quarto-cli-bin # ArchLinux
+```
+Opção 2
+```{bash quarto install git}
+#| eval: FALSE
+git clone https://github.com/quarto-dev/quarto-cli
+cd quarto-cli
+./configure.sh
+```
+Opção 3
+```{bash quarto install wget}
+#| eval: FALSE
+# --- https://quarto.org/docs/download/tarball.html
+wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.25/quarto-1.8.25-linux-amd64.tar.gz
+mkdir ~/opt
+tar -C ~/opt -xvzf quarto-1.8.25-linux-amd64.tar.gz
+mkdir ~/.local/bin
+ln -s ~/opt/quarto-1.8.25/bin/quarto ~/.local/bin/quarto
+(
+  echo ""
+  echo 'export PATH=$PATH:~/.local/bin\n'
+  echo ""
+) >>~/.profile
+source ~/.profile
+quarto check
+```
+
+quarto render report.qmd --to html
+quarto render report.qmd --to docx
+
+## Sintaxe básica 
+
+````verbatim
+---
+title: O meu título
+format: pdf
+---
+
+Veja este meu código Python
+```{{python}}
+1+1 
+```
+
+Veja este meu código em R
+```{{r}}
+1+1
+```
+````
+
+---
+
+````verbatim
+---
+title: O meu título
+subtitle: Utilizando pacotes Python no R com o Reticulate
+author: Fulano de tal
+date: 3/12/26
+abstract: Lorem ipsum... 
+logo:
+  alt: FliSoL 
+format:
+  revealjs:
+    slide-number: true
+    transition: slide
+    incremental: true   
+    scrollable: true
+    preview-links: auto
+    #theme: dark
+    footer: 'FlISoL 2026 - "Python _versus_ R? Python no R!" - Alisson Soares'
+css: style.css
+---
+
+```{{python}}
+#| eval: false
+1+1 
+```
+
+```{{r }}
+#| echo: true
+1+1
+```
+
+````
+
+
+## Extensões, plugins para rodar Quarto
+
+![quarto IDEs](img/quarto_IDEs.png)
+
+IDE Positron - fork VS Code: https://positron.posit.co/  
+Extensão VS Code: https://quarto.org/docs/tools/vscode/index.html  
+
+Extensão nvim:  
+- https://quarto.org/docs/tools/neovim.html  
+- https://github.com/R-nvim/R.nvim  
+
+
+## Jupyter <--> Quarto 
+```{bash jupyter convert}
+#| eval: false
+# Converter de quarto para ipynb:
+quarto convert class_notes.qmd
+
+# Converter de ipynb para quarto:
+quarto convert class_notes.ipynb 
+
+quarto render class_notes.ipynb
+```
+
+## Quarto: adicionando plugins
+https://quarto.org/docs/extensions/managing.html 
+
+No diretório do projeto atual
+```{bash add plugin}
+#| eval: false
+quarto add andrewheiss/language-name
+```
+
+--- 
+
+```{bash}
+#| eval: FALSE
+quarto list extensions 
+quarto update quarto-ext/fontawesome
+quarto remove quarto-ext/fontawesome
+```
+
+# Contatos 
+
+## Telegram 
+https://t.me/R_humanidades  
+https://t.me/rbrasiloficial   
+https://t.me/pythonmg  
+
+
+

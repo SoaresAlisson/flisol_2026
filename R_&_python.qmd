@@ -1,0 +1,8 @@
+---
+title: "Utilizando Python no R e R no Python"
+format: html
+---
+
+https://rstudio.github.io/reticulate/articles/r_markdown.html
+
+

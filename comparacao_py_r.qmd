@@ -1,0 +1,304 @@
+# Comparações Python e R
+
+
+- R: linguagem feita por estatísticos; Python: uso geral 
+
+::: {.fragment .strike}
+
+- R é linguagem funcional, Python é POO
+
+:::
+
+- R é __predominantemente__ funcional, Python é __predominantemente__ POO
+- R possui pipe nativo e o magrittr; Python possui método encadeados 
+- R é vetorizado, o que significa menos for loops, menos código escrito 
+- **Identação**: Python:importa; R:não importa
+- **Ambientes virtuais**: Python: crucial; R: menos importante.
+- Muitas pessoas preferem não escolher entre uma e outra, mas usar ambas em diferentes partes do workflow.
+
+<!-- - Abrir arquivo no Python -->
+
+## Popularidade de Linguagens
+
+:::: {.columns}
+::: {.column width="50%"}
+![popularidade de linguagens de programação](img/popularity_prog_lang_2026.04.png)
+:::
+::: {.column width="50%"}
+
+> The PYPL PopularitY of Programming Language Index is created by analyzing how often language tutorials are searched on Google.
+
+:::
+::::
+
+
+
+## Tipos de POO 
+Terminologia de Chambers. "Extending R", 2016
+
+### **OOP encapsulada** (POO clássica ):
+  - objetos contém dados e métodos
+  - Métodos pertencem a objetos e classes
+  - `object.method(arg1, arg2)`.
+  - encapsulada pois o objeto encapsula dados e comportamento (métodos). 
+  - Objetos são mutáveis
+
+<!-- class methods are separate from objects -->
+
+--- 
+
+### POO funcional:
+  - objetos contém dados
+  - Objetos não são mutáveis
+  - Métodos pertencem a funções genéricas
+  - Chamada de método padrão `generic(object, arg2, arg3)`
+  - funcional pois, vista de fora, parece chamada normal de função e internamente, seus componentes também são funções.
+
+Apud [@wickham:advancedR_2, p.287]  
+<!-- The R6 Class System - Brussels 2017. -->
+
+## Sistemas de POO no R
+
+Nativos:  
+- [S3](https://www.programiz.com/r/s3) (1992)  
+- [S4](https://www.programiz.com/r/s4) (1998)  
+- [RC (Reference Class)](https://search.r-project.org/R/refmans/methods/html/refClass.html)  
+
+Pacotes adicionais:  
+- R.oo [Bengtsson, 2003]  
+- proto [Grothendieck et al., 2016]  
+- [R6](https://r6.r-lib.org/articles/Introduction.html) [Winston Chang, 2017]  
+- [S7](https://cran.r-project.org/web/packages/S7/index.html), [S7 website](https://rconsortium.github.io/S7/articles/S7.html) 2022; 
+
+ver [@wickham:advancedR]
+
+- <https://adv-r.hadley.nz/oo.html>
+- <https://bookdown.org/rdpeng/RProgDA/object-oriented-programming.html>
+- <https://cran.r-project.org/doc/manuals/R-lang.html#Object_002doriented-programming>
+
+
+## POO no R 
+
+Funcional:  
+   S3 S4 S7 
+Encapsulada:  
+  RC
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+POO Funcional 
+```{{r }}
+#| echo: true
+summary(x)
+x <- modify(x)
+```
+:::
+::: {.column width="50%"}
+POO Encapsulada
+```{{r }}
+x$summary()
+x$modify()
+trim(x)
+```
+funções e métodos podem ou não mudar x
+::: 
+::::
+
+## Programação funcional em Python
+
+- <https://docs.python.org/3/howto/functional.html>
+- <https://github.com/sfermigier/awesome-functional-python>
+
+
+
+
+## Pyhton e R - comparando
+
+## índices 
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```{python py_índices}
+ind = range(1,5)
+print(ind[0]) # 1
+print(ind[1]) # 2
+```
+:::
+::: {.column width="50%"}
+
+```{r r_índices}
+ind <- 1:5 
+ind[1] # 1
+ind[2] # 2
+```
+::: 
+::::
+
+## Python: listas
+
+:::: {.columns}
+::: {.column width="50%"}
+Python - lista
+```{python py-listas}
+x = [1, 2, 3]
+y = x
+ # `y` e `x` referem-se à mesma lista
+x.append(4)
+print("x é", x)
+print("y é", y)
+```
+:::
+::: {.column width="50%"}
+R - vetores
+```{r r-vetor}
+x <- c(1, 2, 3)
+y <- x
+x <- c(x, 4) # append
+print(x)
+print(y)
+```
+::: 
+::::
+
+
+## Estrutura de dados
+
+
+| R                      | Python            | Examples                                         |
+|------------------------|-------------------|--------------------------------------------------|
+| Single-element vector  | Scalar            | `1`, `1L`, `TRUE`, `"foo"`                       |
+| Multi-element vector   | List              | `c(1.0, 2.0, 3.0)`, `c(1L, 2L, 3L)`              |
+| List of multiple types | Tuple             | `list(1L, TRUE, "foo")`                          |
+| Named list             | Dict              | `list(a = 1L, b = 2.0)`, `dict(x = x_data)`      |
+| Matrix/Array           | NumPy ndarray     | `matrix(c(1,2,3,4), nrow = 2, ncol = 2)`         |
+| Data Frame             | Pandas DataFrame  | `data.frame(x = c(1,2,3), y = c("a", "b", "c"))` |
+| Function               | Python function   | `function(x) x + 1`                              |
+| Raw                    | Python bytearray  | `as.raw(c(1:10))`                                |
+| NULL, TRUE, FALSE      | None, True, False | `NULL`, `TRUE`, `FALSE`                          |
+
+Fonte: <https://pkgs.rstudio.com/reticulate/articles/calling_python.html>
+
+## R e Pandas
+
+:::: {.columns}
+::: {.column width="60%"}
+Python
+```{python ex.py pandas}
+#| eval: false
+#| echo: true
+import pandas as pd
+
+df = pd.DataFrame({
+    'i': range(1, 11),
+    'col1': [chr(ord('a') + i) for i in range(10)]
+})
+
+df['col2'] = df['i'] + 10
+
+print(df) # Display dataframe
+```
+```
+    i col1  col2
+0   1    a    11
+1   2    b    12
+2   3    c    13
+3   4    d    14
+4   5    e    15
+5   6    f    16
+6   7    g    17
+7   8    h    18
+8   9    i    19
+9  10    j    20
+```
+```{python }
+#| eval: false
+#| echo: true
+print(df.loc[0:4, 'col1'])
+```
+```
+0    a
+1    b
+2    c
+3    d
+4    e
+Name: col1, dtype: str
+```
+:::
+::: {.column width="40%"}
+R
+```{r ex r}
+#| echo: true
+df <- data.frame(i = 1:10,
+  col1=letters[ 1:10])
+
+df$col2 <- df$i + 10
+
+df
+
+df[1:5, "col1"]
+```
+:::
+::::
+
+
+
+## R base x tidyverse
+:::: {.columns}
+::: {.column width="50%"}
+R Base
+```{r ex.R base}
+df <- data.frame(i=1:30, 
+  col1=letters[1:30])
+
+df$col2 <- df$i + 10
+
+df
+
+df[1:5,"col1"]
+```
+:::
+::: {.column width="50%"}
+R - tidyverse 
+```{r ex.tidy}
+library(dplyr)
+df <- tibble::tibble(
+  i = 1:30, 
+  col1 = letters[1:30]) |> 
+  mutate(col2 = i+10)
+
+df
+
+df |> 
+  slice(1:5) |> 
+  select(col1)
+```
+:::
+::::
+
+
+## Salvando objetos em disco 
+
+R
+```verbatim
+saveRDS(nome_objeto, "nome_do_arquivo.Rds")
+nome_objeto <- loadRDS("nome_do_arquivo.Rds")
+```
+
+Python
+```verbatim
+with open("nome_do_arquivo.pkl", "wb") as file:
+    pickle.dump(nome_objeto, file)
+
+with open("nome_do_arquivo.pkl", "rb") as file:
+    nome_objeto = pickle.load(file)
+```
+```verbatim
+nome_objeto.to_pickle("nome_do_arquivo.pkl")
+nome_objeto = pd.read_pickle("nome_do_arquivo.pkl")
+```
+
+https://docs.python.org/3/library/pickle.html
+

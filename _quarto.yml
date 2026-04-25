@@ -1,0 +1,37 @@
+title: Python _versus_ R? Python no R!
+subtitle: Utilizando pacotes Python no R com o Reticulate
+abstract: Python, R são duas das principais linguagens de programação utilizadas em ciência e análise de dados. Há vantagens e desvantagens em cada uma, a depender da tarefa. O R é uma linguagem funcional, feita por estatísticos, com pipe e que possui código mais conciso. Python é orientada a objetos, multi propósito, que possui a maioria de ferramentas avançadas de Processamento de Linguagem Natural, Machine Learning e Inteligência Artificial. Há quem prefira utilizar ambas linguagens em diferentes partes do processo e há diferentes modos de integrar ambas. Vamos focar aqui no uso de Python dentro do R com o pacote Reticulate do R. Vamos aprender como traduzir objetos de uma linguagem a outra, como usar funções Python quase como se fossem funções nativas do R. O formato Quarto, uma variante de markdown também de código aberto voltada para código, permite transicionar facilmente entre as duas.
+author: Alisson Soares
+date: 2026-04-25
+logo:
+  alt: FliSoL
+lang: pt
+color-links: true # See https://ctan.org/pkg/xcolor for colors
+# linkcolor: green
+linkcolor: "#003c00"
+urlcolor: blue
+citecolor: black
+bibliography: references.bib
+execute:
+  echo: true
+  # echo: fenced
+  warning: false
+  message: false
+title-slide-attributes:
+  # data-background-image: img/reticulate.png
+  data-background-image: img/reticulated.gif
+  # data-background-size: contain
+  data-background-size: cover
+  data-background-opacity: "0.25"
+  # quarto add andrewheiss/language-name
+format:
+  revealjs:
+    slide-number: true
+    transition: slide
+    incremental: true
+    scrollable: true
+    # preview-links: auto
+    #theme: dark
+    # footer: '[https://{{< meta prerelease-subdomain >}}quarto.org](https://{{< meta prerelease-subdomain >}}quarto.org)'
+    footer: 'FlISoL 2026 - "Python _versus_ R? Python no R!" - Alisson Soares'
+css: style.css

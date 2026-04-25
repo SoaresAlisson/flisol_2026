@@ -1,0 +1,158 @@
+# Quarto
+
+![quarto website](img/quarto.png)
+https://quarto.org/
+
+## Sintaxe básica 
+
+````verbatim
+---
+title: O meu título
+format: pdf
+---
+
+# Exemplos de código em diferentes lingauagens
+Veja este meu código **Python**
+```{{python}}
+list.files(pattern = "qmd$")
+```
+
+Veja este meu código em _R_
+```{{r}}
+from os import listdir
+os.listdir()
+```
+
+Veja este meu código em Julia
+```{{julia}}
+readdir()
+```
+````
+
+
+## Instalação 
+````verbatim
+yay -S quarto-cli-bin # ArchLinux
+````
+
+. . .
+
+Opção 2
+```verbatim
+git clone https://github.com/quarto-dev/quarto-cli
+cd quarto-cli
+./configure.sh
+```
+. . .
+
+Opção 3
+https://quarto.org/docs/download/tarball.html
+```verbatim
+wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.25/quarto-1.8.25-linux-amd64.tar.gz
+mkdir ~/opt
+tar -C ~/opt -xvzf quarto-1.8.25-linux-amd64.tar.gz
+mkdir ~/.local/bin
+ln -s ~/opt/quarto-1.8.25/bin/quarto ~/.local/bin/quarto
+(
+  echo ""
+  echo 'export PATH=$PATH:~/.local/bin\n'
+  echo ""
+) >>~/.profile
+source ~/.profile
+quarto check
+```
+
+
+## sintaxe
+
+````verbatim
+---
+title: O meu título
+subtitle: Utilizando pacotes Python no R com o Reticulate
+author: Fulano de tal
+date: 3/12/26
+abstract: Lorem ipsum... 
+logo:
+  alt: FliSoL 
+format:
+  revealjs:
+    slide-number: true
+    transition: slide
+    incremental: true   
+    scrollable: true
+    preview-links: auto
+    #theme: dark
+    footer: 'FlISoL 2026 - "Python _versus_ R? Python no R!" - Alisson Soares'
+css: style.css
+---
+
+```{{python}}
+#| eval: false
+1+1 
+```
+
+```{{r }}
+#| echo: true
+1+1
+```
+
+````
+
+## renderizando 
+Pela CLI
+```verbatim
+quarto render report.qmd # segue as instruções do yaml  
+quarto render report.qmd --to html  
+quarto render report.qmd --to docx  
+```
+
+## Extensões, plugins para rodar Quarto
+
+![quarto IDEs](img/quarto_IDEs.png)
+
+## Extensões, plugins para rodar Quarto
+
+- IDE Positron - fork VS Code: <https://positron.posit.co/>  
+- Extensão VS Code: <https://quarto.org/docs/tools/vscode/index.html>  
+- RStudio <https://posit.co/downloads>
+- Extensão nvim:  
+  - <https://quarto.org/docs/tools/neovim.html>  
+  - <https://github.com/R-nvim/R.nvim>  
+
+
+## Jupyter <--> Quarto 
+```{bash jupyter convert}
+#| eval: false
+# Converter de quarto para ipynb:
+quarto convert class_notes.qmd
+
+# Converter de ipynb para quarto:
+quarto convert class_notes.ipynb 
+
+quarto render class_notes.ipynb
+```
+
+## Quarto: adicionando plugins e adicionais
+https://quarto.org/docs/extensions/managing.html 
+
+No diretório do projeto atual
+```{bash add plugin}
+#| eval: false
+quarto add andrewheiss/language-name
+```
+
+--- 
+
+```{bash quarto extensions}
+#| eval: FALSE
+quarto list extensions 
+quarto update quarto-ext/fontawesome
+quarto remove quarto-ext/fontawesome
+```
+
+---
+
+## Usando com o Quarto, especificando o ambiente venv Python 
+Num arquivo `_environment`:
+`QUARTO_PYTHON="~/.virtualenvs/uv_nlp_314/bin/activate"`
+

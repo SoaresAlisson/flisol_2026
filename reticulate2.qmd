@@ -1,0 +1,89 @@
+# De volta ao Reticulate {background-image="img/reticulate.jpg" background-opacity=0.5} 
+
+<!-- ![reticulate](img/reticulate.png) -->
+
+## Instalações Python a partir do R
+
+| comando | descrição |
+| ------- | --------- |
+| py_available() | checa se python está instalado no sistema |
+| install_python()| instala python |
+| install_miniconda() |    Install Miniconda |
+| py_numpy_available() | checa se numpy está disponível |
+| py_module_available("módulo") | Check if a Python module is available on this system.|
+| py_install()| Install Python packages |
+| py_list_packages() |    List installed Python packages |
+| uv_run_tool()|    uv run tool |
+
+## UV  {visibility="hidden"} 
+
+```{python }
+#| eval: false
+reticulate::uv_run_tool("pip list")
+reticulate::uv_run_tool("ruff", "--help")
+reticulate::uv_run_tool("uv pip install gliner2")
+
+system2("uv", args = "pip list", stdout = TRUE)
+```
+
+
+
+## Ex.: Pacote Spacy  
+Nativo do Python <https://spacy.io/>  
+mas com wrap em R <https://spacyr.quanteda.io/articles/using_spacyr.html>.  
+
+## Chamando funções métodos Python como funções R {visibility="hidden"}
+
+Opção 1: jogando no Python
+```{python py:gliner2}
+#| eval: false
+from gliner2 import GLiNER2 
+import pickle 
+model = "fastino/gliner2-large-v1"
+extractor = GLiNER2.from_pretrained("fastino/gliner2-large-v1")
+
+# file_name = "/home/alisson/Documentos/Programação/R/meus_pacotes/gliNERR/extractor_fastino_gliner2-large-v1"
+# pickle.loads(extractor_name)
+
+dir(extractor)
+dir(extractor.extract_entities)
+```
+
+```{r r.gliner}
+#| eval: false
+library(reticulate)
+use_virtualenv("uv_nlp_314")
+reticulate::py_config()$python
+gliner2 <- reticulate::import("gliner2", convert = FALSE)
+# py_help(gliner2)
+class(gliner2) #  "python.builtin.module" "python.builtin.object"
+model <-  "fastino/gliner2-large-v1"
+# extractor <- gliner2$GLiNER2$from_pretrained(model)
+extractor_name <- "~/Documentos/Programação/R/meus_pacotes/gliNERR/extractor_fastino_gliner2-large-v1"
+extractor <- reticulate::py_load_object(extractor_name)
+class(extractor)
+py_help(extractor)
+```
+
+. . .
+
+
+
+
+Opção 2: quase "nativo"
+Transformando objeto python em função R
+
+```{r assign}
+#| eval: false
+assign(
+    "extract_entities",
+    extractor$extract_entities,
+    envir = .GlobalEnv
+  )
+
+args(extract_entities)
+```
+
+<!-- `py_func()` | Wrap an R function in a Python function with the same signature. -->
+
+
