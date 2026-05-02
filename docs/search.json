@@ -1,0 +1,352 @@
+[
+  {
+    "objectID": "2026.flisol_apresentacao.html#popularidade-de-linguagens",
+    "href": "2026.flisol_apresentacao.html#popularidade-de-linguagens",
+    "title": "Python versus R? Python no R!",
+    "section": "Popularidade de Linguagens",
+    "text": "Popularidade de Linguagens\n\n\n\n\n\npopularidade de linguagens de programação\n\n\n\n\nThe PYPL PopularitY of Programming Language Index is created by analyzing how often language tutorials are searched on Google."
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#tipos-de-poo",
+    "href": "2026.flisol_apresentacao.html#tipos-de-poo",
+    "title": "Python versus R? Python no R!",
+    "section": "Tipos de POO",
+    "text": "Tipos de POO\nTerminologia de Chambers. “Extending R”, 2016\nOOP encapsulada (POO clássica ):\n\nobjetos contém dados e métodos\nMétodos pertencem a objetos e classes\nobject.method(arg1, arg2).\nencapsulada pois o objeto encapsula dados e comportamento (métodos).\nObjetos são mutáveis"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#sistemas-de-poo-no-r",
+    "href": "2026.flisol_apresentacao.html#sistemas-de-poo-no-r",
+    "title": "Python versus R? Python no R!",
+    "section": "Sistemas de POO no R",
+    "text": "Sistemas de POO no R\nNativos:\n- S3 (1992)\n- S4 (1998)\n- RC (Reference Class)\nPacotes adicionais:\n- R.oo [Bengtsson, 2003]\n- proto [Grothendieck et al., 2016]\n- R6 [Winston Chang, 2017]\n- S7, S7 website 2022;\nver (Wickham 2015)\n\nhttps://adv-r.hadley.nz/oo.html\nhttps://bookdown.org/rdpeng/RProgDA/object-oriented-programming.html\nhttps://cran.r-project.org/doc/manuals/R-lang.html#Object_002doriented-programming"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#poo-no-r",
+    "href": "2026.flisol_apresentacao.html#poo-no-r",
+    "title": "Python versus R? Python no R!",
+    "section": "POO no R",
+    "text": "POO no R\nFuncional:\nS3 S4 S7\nEncapsulada:\nRC"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#modos-de-rodar-r",
+    "href": "2026.flisol_apresentacao.html#modos-de-rodar-r",
+    "title": "Python versus R? Python no R!",
+    "section": "Modos de rodar R",
+    "text": "Modos de rodar R\n\n\nModo 1\nChamando funções de modo ad hoc\n\nmeus_dados  |&gt;\n  dplyr::filter(coluna1 == \"valorx\") |&gt; \n  dplyr::mutate(nova_coluna = coluna3 + coluna4) |&gt; \n  dplyr::select(coluna1, nova_coluna)\n\n\nModo 2\nCarregando o pacote/biblioteca anteriormente\n\nlibrary(dplyr)\n\nmeus_dados  |&gt; \n  filter(coluna1 == \"valorx\") |&gt; \n  mutate(nova_coluna = coluna3 + coluna4) |&gt; \n  select(coluna1, nova_coluna)"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#programação-funcional-em-python",
+    "href": "2026.flisol_apresentacao.html#programação-funcional-em-python",
+    "title": "Python versus R? Python no R!",
+    "section": "Programação funcional em Python",
+    "text": "Programação funcional em Python\n\nhttps://docs.python.org/3/howto/functional.html\nhttps://github.com/sfermigier/awesome-functional-python"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#pyhton-e-r---algumas-comparações",
+    "href": "2026.flisol_apresentacao.html#pyhton-e-r---algumas-comparações",
+    "title": "Python versus R? Python no R!",
+    "section": "Pyhton e R - Algumas comparações",
+    "text": "Pyhton e R - Algumas comparações"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#índices",
+    "href": "2026.flisol_apresentacao.html#índices",
+    "title": "Python versus R? Python no R!",
+    "section": "Índices",
+    "text": "Índices\n\n\n\nind = range(1,5)\nprint(ind[0]) # 1\n\n1\n\nprint(ind[1]) # 2\n\n2\n\n\n\n\nind &lt;- 1:5\nind[1] # 1\n\n[1] 1\n\nind[2] # 2\n\n[1] 2"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#vetorizado",
+    "href": "2026.flisol_apresentacao.html#vetorizado",
+    "title": "Python versus R? Python no R!",
+    "section": "vetorizado",
+    "text": "vetorizado\n\n\n\nnumeros = [1, 2, 3, 4, 5]\nnumeros * 2\n\n[1, 2, 3, 4, 5, 1, 2, 3, 4, 5]\n\nnovos_numeros = list(map(lambda x: x * 2, numeros))\nprint(novos_numeros)\n\n[2, 4, 6, 8, 10]\n\n\n\n\nnumeros &lt;- 1:5\nnumeros * 2\n\n[1]  2  4  6  8 10"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#python-listas",
+    "href": "2026.flisol_apresentacao.html#python-listas",
+    "title": "Python versus R? Python no R!",
+    "section": "Python: listas",
+    "text": "Python: listas\n\n\nPython - lista\n\nx = [1, 2, 3]\ny = x\n # `y` e `x` referem-se à mesma lista\nx.append(4)\nprint(\"x é\", x)\n\nx é [1, 2, 3, 4]\n\nprint(\"y é\", y)\n\ny é [1, 2, 3, 4]\n\n\n\nR - vetores\n\nx &lt;- c(1, 2, 3)\ny &lt;- x\nx &lt;- c(x, 4) # append\nprint(x)\n\n[1] 1 2 3 4\n\nprint(y)\n\n[1] 1 2 3"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#estrutura-de-dados",
+    "href": "2026.flisol_apresentacao.html#estrutura-de-dados",
+    "title": "Python versus R? Python no R!",
+    "section": "Estrutura de dados",
+    "text": "Estrutura de dados\n\n\n\n\n\n\n\n\nR\nPython\nExamples\n\n\n\n\nSingle-element vector\nScalar\n1, 1L, TRUE, \"foo\"\n\n\nMulti-element vector\nList\nc(1.0, 2.0, 3.0), c(1L, 2L, 3L)\n\n\nList of multiple types\nTuple\nlist(1L, TRUE, \"foo\")\n\n\nNamed list\nDict\nlist(a = 1L, b = 2.0), dict(x = x_data)\n\n\nMatrix/Array\nNumPy ndarray\nmatrix(c(1,2,3,4), nrow = 2, ncol = 2)\n\n\nData Frame\nPandas DataFrame\ndata.frame(x = c(1,2,3), y = c(\"a\", \"b\", \"c\"))\n\n\nFunction\nPython function\nfunction(x) x + 1\n\n\nRaw\nPython bytearray\nas.raw(c(1:10))\n\n\nNULL, TRUE, FALSE\nNone, True, False\nNULL, TRUE, FALSE\n\n\n\nFonte: https://pkgs.rstudio.com/reticulate/articles/calling_python.html"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#r-e-pandas",
+    "href": "2026.flisol_apresentacao.html#r-e-pandas",
+    "title": "Python versus R? Python no R!",
+    "section": "R e Pandas",
+    "text": "R e Pandas\n\n\nPython\n\nimport pandas as pd\n\ndf = pd.DataFrame({\n    'i': range(1, 11),\n    'col1': [chr(ord('a') + i) for i in range(10)]\n})\n\ndf['col2'] = df['i'] + 10\n\nprint(df) # Display dataframe\n\n    i col1  col2\n0   1    a    11\n1   2    b    12\n2   3    c    13\n3   4    d    14\n4   5    e    15\n5   6    f    16\n6   7    g    17\n7   8    h    18\n8   9    i    19\n9  10    j    20\n\nprint(df.loc[0:4, 'col1'])\n\n0    a\n1    b\n2    c\n3    d\n4    e\nName: col1, dtype: str\n\nR\n\ndf &lt;- data.frame(i = 1:10,\n  col1=letters[ 1:10])\n\ndf$col2 &lt;- df$i + 10\n\ndf\n\n    i col1 col2\n1   1    a   11\n2   2    b   12\n3   3    c   13\n4   4    d   14\n5   5    e   15\n6   6    f   16\n7   7    g   17\n8   8    h   18\n9   9    i   19\n10 10    j   20\n\ndf[1:5, \"col1\"]\n\n[1] \"a\" \"b\" \"c\" \"d\" \"e\""
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#r-base-x-tidyverse",
+    "href": "2026.flisol_apresentacao.html#r-base-x-tidyverse",
+    "title": "Python versus R? Python no R!",
+    "section": "R base x tidyverse",
+    "text": "R base x tidyverse\n\n\nR Base\n\ndf &lt;- data.frame(i=1:30, \n  col1=letters[1:30])\n\ndf$col2 &lt;- df$i + 10\n\ndf\n\n    i col1 col2\n1   1    a   11\n2   2    b   12\n3   3    c   13\n4   4    d   14\n5   5    e   15\n6   6    f   16\n7   7    g   17\n8   8    h   18\n9   9    i   19\n10 10    j   20\n11 11    k   21\n12 12    l   22\n13 13    m   23\n14 14    n   24\n15 15    o   25\n16 16    p   26\n17 17    q   27\n18 18    r   28\n19 19    s   29\n20 20    t   30\n21 21    u   31\n22 22    v   32\n23 23    w   33\n24 24    x   34\n25 25    y   35\n26 26    z   36\n27 27 &lt;NA&gt;   37\n28 28 &lt;NA&gt;   38\n29 29 &lt;NA&gt;   39\n30 30 &lt;NA&gt;   40\n\ndf[1:5,\"col1\"]\n\n[1] \"a\" \"b\" \"c\" \"d\" \"e\"\n\n\n\nR - tidyverse\n\nlibrary(dplyr)\ndf &lt;- tibble::tibble(\n  i = 1:30, \n  col1 = letters[1:30]) |&gt; \n  mutate(col2 = i+10)\n\ndf\n\n# A tibble: 30 × 3\n       i col1   col2\n   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;\n 1     1 a        11\n 2     2 b        12\n 3     3 c        13\n 4     4 d        14\n 5     5 e        15\n 6     6 f        16\n 7     7 g        17\n 8     8 h        18\n 9     9 i        19\n10    10 j        20\n# ℹ 20 more rows\n\ndf |&gt; \n  slice(1:5) |&gt; \n  select(col1)\n\n# A tibble: 5 × 1\n  col1 \n  &lt;chr&gt;\n1 a    \n2 b    \n3 c    \n4 d    \n5 e"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#salvando-objetos-em-disco",
+    "href": "2026.flisol_apresentacao.html#salvando-objetos-em-disco",
+    "title": "Python versus R? Python no R!",
+    "section": "Salvando objetos em disco",
+    "text": "Salvando objetos em disco\nR\nsaveRDS(nome_objeto, \"nome_do_arquivo.Rds\")\nnome_objeto &lt;- loadRDS(\"nome_do_arquivo.Rds\")\nPython\nwith open(\"nome_do_arquivo.pkl\", \"wb\") as file:\n    pickle.dump(nome_objeto, file)\n\nwith open(\"nome_do_arquivo.pkl\", \"rb\") as file:\n    nome_objeto = pickle.load(file)\nnome_objeto.to_pickle(\"nome_do_arquivo.pkl\")\nnome_objeto = pd.read_pickle(\"nome_do_arquivo.pkl\")\nhttps://docs.python.org/3/library/pickle.html"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#ambientes-virtuais",
+    "href": "2026.flisol_apresentacao.html#ambientes-virtuais",
+    "title": "Python versus R? Python no R!",
+    "section": "ambientes virtuais",
+    "text": "ambientes virtuais\nO reticulate usa a versão do Python que estiver no seu PATH (R: Sys.which(\"python\") ou bash: which python). Para especificar qual Python env o Reticulate deve utilizar, usar:\n\nuse_python()\nuse_python_version()\nuse_virtualenv()\nuse_condaenv()\nuse_miniconda()\n\nhttps://rstudio.github.io/reticulate/articles/versions.html"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#obtendo-ajuda",
+    "href": "2026.flisol_apresentacao.html#obtendo-ajuda",
+    "title": "Python versus R? Python no R!",
+    "section": "Obtendo ajuda",
+    "text": "Obtendo ajuda\n\n#py_help(\"print\")\n\nos &lt;- import(\"os\")\npy_help(os$chdir)"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#checando-se-módulospacotes-estão-instalados",
+    "href": "2026.flisol_apresentacao.html#checando-se-módulospacotes-estão-instalados",
+    "title": "Python versus R? Python no R!",
+    "section": "checando se módulos/pacotes estão instalados",
+    "text": "checando se módulos/pacotes estão instalados\n\npy_module_available(\"numpy\")\n\n[1] TRUE\n\npy_module_available(\"xyz\")\n\n[1] FALSE"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#sourcing",
+    "href": "2026.flisol_apresentacao.html#sourcing",
+    "title": "Python versus R? Python no R!",
+    "section": "sourcing",
+    "text": "sourcing\nSourcing Scripts. Dado o script add.py:\n# conteúdo do arquivo\ndef add(x, y):\n  print(\"the sum of\", x, \"and\", y, \"is\", x+y)\n\nChamando-o de dentro do R\n\nsource_python('add.py')\nadd(5, 10)\n\nthe sum of 5.0 and 10.0 is 15.0"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#executando-código",
+    "href": "2026.flisol_apresentacao.html#executando-código",
+    "title": "Python versus R? Python no R!",
+    "section": "Executando código",
+    "text": "Executando código\nA partir de arquivo\n\nlibrary(reticulate)\n\npy_run_file(\"meu_script.py\")\n\n\nRodando Python diretamente do R\n\npy_run_string(\"x = 10 + 10\")\npy_run_string(\"print(x)\")\n\n20\n\n\n\n\n\npy_run_string('import os')\npy_run_string('arquivos = os.listdir(\".\")')\npy_run_string('print(arquivos)')\n\n['.gitignore', 'reticulate2.qmd', '2026.flisol_apresentacao.rmarkdown', 'lei_softwarelivre.qmd', '.quarto', '2026.flisol_proposta.qmd', 'standby.qmd', 'style.css', '_environment', 'flight_data.csv', 'reticulate.qmd', '2026.flisol_apresentacao.qmd', 'img', 'references.bib', 'apresentações.png', 'docs', 'R_&_python.qmd', 'reticulate2.sync-conflict-20260424-214322-4BBEXNW.qmd', 'add.py', 'quarto.qmd', '_brand.yml', '.git', 'comparacao_py_r.qmd', '_quarto.yml']"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#objetos",
+    "href": "2026.flisol_apresentacao.html#objetos",
+    "title": "Python versus R? Python no R!",
+    "section": "Objetos",
+    "text": "Objetos\nAcessar objetos do Python no R com reticulate::py$ ou py$\n\nfrom_py = \"Olá! Sou um valor vindo do Python\"\nprint(from_py)\n\nOlá! Sou um valor vindo do Python\n\n\n\n\nvaria &lt;- py$from_py\n\n\n\n\nvaria\n\n[1] \"Olá! Sou um valor vindo do Python\"\n\nvaria |&gt; toupper()\n\n[1] \"OLÁ! SOU UM VALOR VINDO DO PYTHON\"\n\nstrsplit(varia, \" \")\n\n[[1]]\n[1] \"Olá!\"   \"Sou\"    \"um\"     \"valor\"  \"vindo\"  \"do\"     \"Python\"\n\nvaria |&gt;\n  gsub(x = _, \"Sou\", \"Eu era\") |&gt;\n  paste0(x = _, \". Mas agora estou dentro do R!\")\n\n[1] \"Olá! Eu era um valor vindo do Python. Mas agora estou dentro do R!\""
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#salvando-objetos-python-a-partir-do-r",
+    "href": "2026.flisol_apresentacao.html#salvando-objetos-python-a-partir-do-r",
+    "title": "Python versus R? Python no R!",
+    "section": "Salvando objetos Python a partir do R",
+    "text": "Salvando objetos Python a partir do R\nUtilizando Pickle.\n\nreticulate::py_save_object(objeto, nome_de_arquivo, ...)\nreticulate::py_load_object(nome_de_arquivo)"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#pandas",
+    "href": "2026.flisol_apresentacao.html#pandas",
+    "title": "Python versus R? Python no R!",
+    "section": "Pandas",
+    "text": "Pandas\nDo Python para R\n\nimport pandas as pd\ndf = pd.read_csv(\"flight_data.csv\")\n\nprint(df)\n\n        year  month  day  dep_time  sched_dep_time  dep_delay  ...  dest  air_time  distance hour  minute         time_hour\n0       2013      1    1     517.0             515        2.0  ...   IAH     227.0      1400    5      15  01-01-2013 05:00\n1       2013      1    1     533.0             529        4.0  ...   IAH     227.0      1416    5      29  01-01-2013 05:00\n2       2013      1    1     542.0             540        2.0  ...   MIA     160.0      1089    5      40  01-01-2013 05:00\n3       2013      1    1     544.0             545       -1.0  ...   BQN     183.0      1576    5      45  01-01-2013 05:00\n4       2013      1    1     554.0             600       -6.0  ...   ATL     116.0       762    6       0  01-01-2013 06:00\n...      ...    ...  ...       ...             ...        ...  ...   ...       ...       ...  ...     ...               ...\n336771  2013      9   30       NaN            1455        NaN  ...   DCA       NaN       213   14      55  30-09-2013 14:00\n336772  2013      9   30       NaN            2200        NaN  ...   SYR       NaN       198   22       0  30-09-2013 22:00\n336773  2013      9   30       NaN            1210        NaN  ...   BNA       NaN       764   12      10  30-09-2013 12:00\n336774  2013      9   30       NaN            1159        NaN  ...   CLE       NaN       419   11      59  30-09-2013 11:00\n336775  2013      9   30       NaN             840        NaN  ...   RDU       NaN       431    8      40  30-09-2013 08:00\n\n[336776 rows x 19 columns]\n\nprint(df.columns)\n\nIndex(['year', 'month', 'day', 'dep_time', 'sched_dep_time', 'dep_delay',\n       'arr_time', 'sched_arr_time', 'arr_delay', 'carrier', 'flight',\n       'tailnum', 'origin', 'dest', 'air_time', 'distance', 'hour', 'minute',\n       'time_hour'],\n      dtype='object')\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 336776 entries, 0 to 336775\nData columns (total 19 columns):\n #   Column          Non-Null Count   Dtype  \n---  ------          --------------   -----  \n 0   year            336776 non-null  int64  \n 1   month           336776 non-null  int64  \n 2   day             336776 non-null  int64  \n 3   dep_time        328521 non-null  float64\n 4   sched_dep_time  336776 non-null  int64  \n 5   dep_delay       328521 non-null  float64\n 6   arr_time        328063 non-null  float64\n 7   sched_arr_time  336776 non-null  int64  \n 8   arr_delay       327346 non-null  float64\n 9   carrier         336776 non-null  object \n 10  flight          336776 non-null  int64  \n 11  tailnum         334264 non-null  object \n 12  origin          336776 non-null  object \n 13  dest            336776 non-null  object \n 14  air_time        327346 non-null  float64\n 15  distance        336776 non-null  int64  \n 16  hour            336776 non-null  int64  \n 17  minute          336776 non-null  int64  \n 18  time_hour       336776 non-null  object \ndtypes: float64(5), int64(9), object(5)\nmemory usage: 48.8+ MB\n\ndf_filtered = df[df[\"month\"] == 4]\n\ndf2 = (df_filtered.groupby(\"day\")[\"distance\"]\n          .sum()\n          .reset_index(name=\"distancia_somada\")\n       .reset_index())\nprint(df2)\n\n    index  day  distancia_somada\n0       0    1            976317\n1       1    2           1007535\n2       2    3           1020100\n3       3    4           1013688\n4       4    5           1011323\n5       5    6            846162\n6       6    7            963857\n7       7    8           1014213\n8       8    9           1007876\n9       9   10           1020162\n10     10   11           1023063\n11     11   12           1018819\n12     12   13            832544\n13     13   14            965846\n14     14   15           1026636\n15     15   16           1004528\n16     16   17           1017641\n17     17   18           1023063\n18     18   19           1018632\n19     19   20            828463\n20     20   21            967877\n21     21   22           1016311\n22     22   23            992502\n23     23   24           1002642\n24     24   25           1014262\n25     25   26           1011026\n26     26   27            818522\n27     27   28            960447\n28     28   29           1013832\n29     29   30            989405\n\n\nou ainda\n\n(df2 := pd.read_csv(\"flight_data.csv\")\n   .pipe(lambda x: x[x[\"month\"] == 4])\n   .groupby(\"day\")[\"distance\"]\n   .sum()\n   .reset_index(name=\"distancia_somada\")\n)\n\n    day  distancia_somada\n0     1            976317\n1     2           1007535\n2     3           1020100\n3     4           1013688\n4     5           1011323\n5     6            846162\n6     7            963857\n7     8           1014213\n8     9           1007876\n9    10           1020162\n10   11           1023063\n11   12           1018819\n12   13            832544\n13   14            965846\n14   15           1026636\n15   16           1004528\n16   17           1017641\n17   18           1023063\n18   19           1018632\n19   20            828463\n20   21            967877\n21   22           1016311\n22   23            992502\n23   24           1002642\n24   25           1014262\n25   26           1011026\n26   27            818522\n27   28            960447\n28   29           1013832\n29   30            989405"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#de-r-para-python",
+    "href": "2026.flisol_apresentacao.html#de-r-para-python",
+    "title": "Python versus R? Python no R!",
+    "section": "De R para Python",
+    "text": "De R para Python\n\nlibrary(tidyverse)\n\ndf_r &lt;- read_csv(\"flight_data.csv\") |&gt;\n  filter(month == 4) |&gt;\n    group_by(day) |&gt;\n    summarise(distancia_somada = sum(distance))\n\ndf_r\n\n# A tibble: 30 × 2\n     day distancia_somada\n   &lt;dbl&gt;            &lt;dbl&gt;\n 1     1           976317\n 2     2          1007535\n 3     3          1020100\n 4     4          1013688\n 5     5          1011323\n 6     6           846162\n 7     7           963857\n 8     8          1014213\n 9     9          1007876\n10    10          1020162\n# ℹ 20 more rows\n\n\n\nprint(r.df_r)\n\n     day  distancia_somada\n0    1.0          976317.0\n1    2.0         1007535.0\n2    3.0         1020100.0\n3    4.0         1013688.0\n4    5.0         1011323.0\n5    6.0          846162.0\n6    7.0          963857.0\n7    8.0         1014213.0\n8    9.0         1007876.0\n9   10.0         1020162.0\n10  11.0         1023063.0\n11  12.0         1018819.0\n12  13.0          832544.0\n13  14.0          965846.0\n14  15.0         1026636.0\n15  16.0         1004528.0\n16  17.0         1017641.0\n17  18.0         1023063.0\n18  19.0         1018632.0\n19  20.0          828463.0\n20  21.0          967877.0\n21  22.0         1016311.0\n22  23.0          992502.0\n23  24.0         1002642.0\n24  25.0         1014262.0\n25  26.0         1011026.0\n26  27.0          818522.0\n27  28.0          960447.0\n28  29.0         1013832.0\n29  30.0          989405.0"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#python-repl",
+    "href": "2026.flisol_apresentacao.html#python-repl",
+    "title": "Python versus R? Python no R!",
+    "section": "Python REPL",
+    "text": "Python REPL\nDe dentro do terminal R, entra no modo interativo com Python com repl_python()\n\nrepl"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#sintaxe-básica",
+    "href": "2026.flisol_apresentacao.html#sintaxe-básica",
+    "title": "Python versus R? Python no R!",
+    "section": "Sintaxe básica",
+    "text": "Sintaxe básica\n---\ntitle: O meu título\nformat: pdf\n---\n\n# Exemplos de código em diferentes lingauagens\nVeja este meu código **Python**\n```{python}\nlist.files(pattern = \"qmd$\")\n```\n\nVeja este meu código em _R_\n```{r}\nfrom os import listdir\nos.listdir()\n```\n\nVeja este meu código em Julia\n```{julia}\nreaddir()\n```"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#instalação",
+    "href": "2026.flisol_apresentacao.html#instalação",
+    "title": "Python versus R? Python no R!",
+    "section": "Instalação",
+    "text": "Instalação\nyay -S quarto-cli-bin # ArchLinux\n\nOpção 2\ngit clone https://github.com/quarto-dev/quarto-cli\ncd quarto-cli\n./configure.sh\n\n\nOpção 3 https://quarto.org/docs/download/tarball.html\nwget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.25/quarto-1.8.25-linux-amd64.tar.gz\nmkdir ~/opt\ntar -C ~/opt -xvzf quarto-1.8.25-linux-amd64.tar.gz\nmkdir ~/.local/bin\nln -s ~/opt/quarto-1.8.25/bin/quarto ~/.local/bin/quarto\n(\n  echo \"\"\n  echo 'export PATH=$PATH:~/.local/bin\\n'\n  echo \"\"\n) &gt;&gt;~/.profile\nsource ~/.profile\nquarto check"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#sintaxe",
+    "href": "2026.flisol_apresentacao.html#sintaxe",
+    "title": "Python versus R? Python no R!",
+    "section": "sintaxe",
+    "text": "sintaxe\n---\ntitle: O meu título\nsubtitle: Utilizando pacotes Python no R com o Reticulate\nauthor: Fulano de tal\ndate: 3/12/26\nabstract: Lorem ipsum... \nlogo:\n  alt: FliSoL \nformat:\n  revealjs:\n    slide-number: true\n    transition: slide\n    incremental: true   \n    scrollable: true\n    preview-links: auto\n    #theme: dark\n    footer: 'FlISoL 2026 - \"Python _versus_ R? Python no R!\" - Alisson Soares'\ncss: style.css\n---\n\n```{python}\n#| eval: false\n1+1 \n```\n\n```{r }\n#| echo: true\n1+1\n```"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#renderizando",
+    "href": "2026.flisol_apresentacao.html#renderizando",
+    "title": "Python versus R? Python no R!",
+    "section": "renderizando",
+    "text": "renderizando\nPela CLI\nquarto render report.qmd # segue as instruções do yaml  \nquarto render report.qmd --to html  \nquarto render report.qmd --to docx"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#extensões-plugins-para-rodar-quarto",
+    "href": "2026.flisol_apresentacao.html#extensões-plugins-para-rodar-quarto",
+    "title": "Python versus R? Python no R!",
+    "section": "Extensões, plugins para rodar Quarto",
+    "text": "Extensões, plugins para rodar Quarto\n\nquarto IDEs"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#extensões-plugins-para-rodar-quarto-1",
+    "href": "2026.flisol_apresentacao.html#extensões-plugins-para-rodar-quarto-1",
+    "title": "Python versus R? Python no R!",
+    "section": "Extensões, plugins para rodar Quarto",
+    "text": "Extensões, plugins para rodar Quarto\n\nIDE Positron - fork VS Code: https://positron.posit.co/\n\nExtensão VS Code: https://quarto.org/docs/tools/vscode/index.html\n\nRStudio https://posit.co/downloads\nExtensão nvim:\n\nhttps://quarto.org/docs/tools/neovim.html\n\nhttps://github.com/R-nvim/R.nvim"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#jupyter-quarto",
+    "href": "2026.flisol_apresentacao.html#jupyter-quarto",
+    "title": "Python versus R? Python no R!",
+    "section": "Jupyter <–> Quarto",
+    "text": "Jupyter &lt;–&gt; Quarto\n\n# Converter de quarto para ipynb:\nquarto convert class_notes.qmd\n\n# Converter de ipynb para quarto:\nquarto convert class_notes.ipynb \n\nquarto render class_notes.ipynb"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#quarto-adicionando-plugins-e-adicionais",
+    "href": "2026.flisol_apresentacao.html#quarto-adicionando-plugins-e-adicionais",
+    "title": "Python versus R? Python no R!",
+    "section": "Quarto: adicionando plugins e adicionais",
+    "text": "Quarto: adicionando plugins e adicionais\nhttps://quarto.org/docs/extensions/managing.html\nNo diretório do projeto atual\n\nquarto add andrewheiss/language-name"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#usando-com-o-quarto-especificando-o-ambiente-venv-python",
+    "href": "2026.flisol_apresentacao.html#usando-com-o-quarto-especificando-o-ambiente-venv-python",
+    "title": "Python versus R? Python no R!",
+    "section": "Usando com o Quarto, especificando o ambiente venv Python",
+    "text": "Usando com o Quarto, especificando o ambiente venv Python\nNum arquivo _environment: QUARTO_PYTHON=\"~/.virtualenvs/uv_nlp_314/bin/activate\""
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#instalações-python-a-partir-do-r",
+    "href": "2026.flisol_apresentacao.html#instalações-python-a-partir-do-r",
+    "title": "Python versus R? Python no R!",
+    "section": "Instalações Python a partir do R",
+    "text": "Instalações Python a partir do R\n\n\n\n\n\n\n\ncomando\ndescrição\n\n\n\n\npy_available()\ncheca se python está instalado no sistema\n\n\ninstall_python()\ninstala python\n\n\ninstall_miniconda()\nInstall Miniconda\n\n\npy_numpy_available()\ncheca se numpy está disponível\n\n\npy_module_available(“módulo”)\nCheck if a Python module is available on this system.\n\n\npy_install()\nInstall Python packages\n\n\npy_list_packages()\nList installed Python packages\n\n\nuv_run_tool()\nuv run tool"
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#ex.-pacote-spacy",
+    "href": "2026.flisol_apresentacao.html#ex.-pacote-spacy",
+    "title": "Python versus R? Python no R!",
+    "section": "Ex.: Pacote Spacy",
+    "text": "Ex.: Pacote Spacy\nNativo do Python https://spacy.io/\nmas com wrap em R https://spacyr.quanteda.io/articles/using_spacyr.html."
+  },
+  {
+    "objectID": "2026.flisol_apresentacao.html#telegram",
+    "href": "2026.flisol_apresentacao.html#telegram",
+    "title": "Python versus R? Python no R!",
+    "section": "Telegram",
+    "text": "Telegram\nhttps://t.me/pythonmg\nhttps://t.me/rbrasiloficial\nhttps://t.me/R_humanidades\nhttps://t.me/bhlivre\nEventos Tech BH https://t.me/eventos_tech_bh\nhttps://t.me/nvimbr"
+  },
+  {
+    "objectID": "comparacao_py_r.html#popularidade-de-linguagens",
+    "href": "comparacao_py_r.html#popularidade-de-linguagens",
+    "title": "Python versus R? Python no R!",
+    "section": "Popularidade de Linguagens",
+    "text": "Popularidade de Linguagens\n\n\n\n\n\npopularidade de linguagens de programação\n\n\n\n\nThe PYPL PopularitY of Programming Language Index is created by analyzing how often language tutorials are searched on Google."
+  },
+  {
+    "objectID": "comparacao_py_r.html#tipos-de-poo",
+    "href": "comparacao_py_r.html#tipos-de-poo",
+    "title": "Python versus R? Python no R!",
+    "section": "Tipos de POO",
+    "text": "Tipos de POO\nTerminologia de Chambers. “Extending R”, 2016\nOOP encapsulada (POO clássica ):\n\nobjetos contém dados e métodos\nMétodos pertencem a objetos e classes\nobject.method(arg1, arg2).\nencapsulada pois o objeto encapsula dados e comportamento (métodos).\nObjetos são mutáveis"
+  },
+  {
+    "objectID": "comparacao_py_r.html#sistemas-de-poo-no-r",
+    "href": "comparacao_py_r.html#sistemas-de-poo-no-r",
+    "title": "Python versus R? Python no R!",
+    "section": "Sistemas de POO no R",
+    "text": "Sistemas de POO no R\nNativos:\n- S3 (1992)\n- S4 (1998)\n- RC (Reference Class)\nPacotes adicionais:\n- R.oo [Bengtsson, 2003]\n- proto [Grothendieck et al., 2016]\n- R6 [Winston Chang, 2017]\n- S7, S7 website 2022;\nver (Wickham 2015)\n\nhttps://adv-r.hadley.nz/oo.html\nhttps://bookdown.org/rdpeng/RProgDA/object-oriented-programming.html\nhttps://cran.r-project.org/doc/manuals/R-lang.html#Object_002doriented-programming"
+  },
+  {
+    "objectID": "comparacao_py_r.html#poo-no-r",
+    "href": "comparacao_py_r.html#poo-no-r",
+    "title": "Python versus R? Python no R!",
+    "section": "POO no R",
+    "text": "POO no R\nFuncional:\nS3 S4 S7\nEncapsulada:\nRC"
+  },
+  {
+    "objectID": "comparacao_py_r.html#modos-de-rodar-r",
+    "href": "comparacao_py_r.html#modos-de-rodar-r",
+    "title": "Python versus R? Python no R!",
+    "section": "Modos de rodar R",
+    "text": "Modos de rodar R\n\n\nModo 1\n\nmeus_dados  |&gt;\n  dplyr::filter(coluna1 == \"valorx\") |&gt; \n  dplyr::mutate(nova_coluna = coluna3 + coluna4) |&gt; \n  dplyr::select(coluna1, nova_coluna)\n\n\nModo 2\n\nlibrary(dplyr)\n\nmeus_dados  |&gt; \n  filter(coluna1 == \"valorx\") |&gt; \n  mutate(nova_coluna = coluna3 + coluna4) |&gt; \n  select(coluna1, nova_coluna)\n\nfunções e métodos podem ou não mudar x"
+  },
+  {
+    "objectID": "comparacao_py_r.html#programação-funcional-em-python",
+    "href": "comparacao_py_r.html#programação-funcional-em-python",
+    "title": "Python versus R? Python no R!",
+    "section": "Programação funcional em Python",
+    "text": "Programação funcional em Python\n\nhttps://docs.python.org/3/howto/functional.html\nhttps://github.com/sfermigier/awesome-functional-python"
+  },
+  {
+    "objectID": "comparacao_py_r.html#pyhton-e-r---algumas-comparações",
+    "href": "comparacao_py_r.html#pyhton-e-r---algumas-comparações",
+    "title": "Python versus R? Python no R!",
+    "section": "Pyhton e R - Algumas comparações",
+    "text": "Pyhton e R - Algumas comparações"
+  },
+  {
+    "objectID": "comparacao_py_r.html#índices",
+    "href": "comparacao_py_r.html#índices",
+    "title": "Python versus R? Python no R!",
+    "section": "Índices",
+    "text": "Índices\n\n\n\nind = range(1,5)\nprint(ind[0]) # 1\n\n1\n\nprint(ind[1]) # 2\n\n2\n\n\n\n\nind &lt;- 1:5\nind[1] # 1\n\n[1] 1\n\nind[2] # 2\n\n[1] 2"
+  },
+  {
+    "objectID": "comparacao_py_r.html#vetorizado",
+    "href": "comparacao_py_r.html#vetorizado",
+    "title": "Python versus R? Python no R!",
+    "section": "vetorizado",
+    "text": "vetorizado\n\n\n\nnumeros = [1, 2, 3, 4, 5]\nnumeros * 2\n\n[1, 2, 3, 4, 5, 1, 2, 3, 4, 5]\n\nnovos_numeros = list(map(lambda x: x * 2, numeros))\nprint(novos_numeros)\n\n[2, 4, 6, 8, 10]\n\n\n\n\nnumeros &lt;- 1:5\nnumeros * 2\n\n[1]  2  4  6  8 10"
+  },
+  {
+    "objectID": "comparacao_py_r.html#python-listas",
+    "href": "comparacao_py_r.html#python-listas",
+    "title": "Python versus R? Python no R!",
+    "section": "Python: listas",
+    "text": "Python: listas\n\n\nPython - lista\n\nx = [1, 2, 3]\ny = x\n # `y` e `x` referem-se à mesma lista\nx.append(4)\nprint(\"x é\", x)\n\nx é [1, 2, 3, 4]\n\nprint(\"y é\", y)\n\ny é [1, 2, 3, 4]\n\n\n\nR - vetores\n\nx &lt;- c(1, 2, 3)\ny &lt;- x\nx &lt;- c(x, 4) # append\nprint(x)\n\n[1] 1 2 3 4\n\nprint(y)\n\n[1] 1 2 3"
+  },
+  {
+    "objectID": "comparacao_py_r.html#estrutura-de-dados",
+    "href": "comparacao_py_r.html#estrutura-de-dados",
+    "title": "Python versus R? Python no R!",
+    "section": "Estrutura de dados",
+    "text": "Estrutura de dados\n\n\n\n\n\n\n\n\nR\nPython\nExamples\n\n\n\n\nSingle-element vector\nScalar\n1, 1L, TRUE, \"foo\"\n\n\nMulti-element vector\nList\nc(1.0, 2.0, 3.0), c(1L, 2L, 3L)\n\n\nList of multiple types\nTuple\nlist(1L, TRUE, \"foo\")\n\n\nNamed list\nDict\nlist(a = 1L, b = 2.0), dict(x = x_data)\n\n\nMatrix/Array\nNumPy ndarray\nmatrix(c(1,2,3,4), nrow = 2, ncol = 2)\n\n\nData Frame\nPandas DataFrame\ndata.frame(x = c(1,2,3), y = c(\"a\", \"b\", \"c\"))\n\n\nFunction\nPython function\nfunction(x) x + 1\n\n\nRaw\nPython bytearray\nas.raw(c(1:10))\n\n\nNULL, TRUE, FALSE\nNone, True, False\nNULL, TRUE, FALSE\n\n\n\nFonte: https://pkgs.rstudio.com/reticulate/articles/calling_python.html"
+  },
+  {
+    "objectID": "comparacao_py_r.html#r-e-pandas",
+    "href": "comparacao_py_r.html#r-e-pandas",
+    "title": "Python versus R? Python no R!",
+    "section": "R e Pandas",
+    "text": "R e Pandas\n\n\nPython\n\nimport pandas as pd\n\ndf = pd.DataFrame({\n    'i': range(1, 11),\n    'col1': [chr(ord('a') + i) for i in range(10)]\n})\n\ndf['col2'] = df['i'] + 10\n\nprint(df) # Display dataframe\n\n    i col1  col2\n0   1    a    11\n1   2    b    12\n2   3    c    13\n3   4    d    14\n4   5    e    15\n5   6    f    16\n6   7    g    17\n7   8    h    18\n8   9    i    19\n9  10    j    20\n\nprint(df.loc[0:4, 'col1'])\n\n0    a\n1    b\n2    c\n3    d\n4    e\nName: col1, dtype: str\n\nR\n\ndf &lt;- data.frame(i = 1:10,\n  col1=letters[ 1:10])\n\ndf$col2 &lt;- df$i + 10\n\ndf\n\n    i col1 col2\n1   1    a   11\n2   2    b   12\n3   3    c   13\n4   4    d   14\n5   5    e   15\n6   6    f   16\n7   7    g   17\n8   8    h   18\n9   9    i   19\n10 10    j   20\n\ndf[1:5, \"col1\"]\n\n[1] \"a\" \"b\" \"c\" \"d\" \"e\""
+  },
+  {
+    "objectID": "comparacao_py_r.html#r-base-x-tidyverse",
+    "href": "comparacao_py_r.html#r-base-x-tidyverse",
+    "title": "Python versus R? Python no R!",
+    "section": "R base x tidyverse",
+    "text": "R base x tidyverse\n\n\nR Base\n\ndf &lt;- data.frame(i=1:30, \n  col1=letters[1:30])\n\ndf$col2 &lt;- df$i + 10\n\ndf\n\n    i col1 col2\n1   1    a   11\n2   2    b   12\n3   3    c   13\n4   4    d   14\n5   5    e   15\n6   6    f   16\n7   7    g   17\n8   8    h   18\n9   9    i   19\n10 10    j   20\n11 11    k   21\n12 12    l   22\n13 13    m   23\n14 14    n   24\n15 15    o   25\n16 16    p   26\n17 17    q   27\n18 18    r   28\n19 19    s   29\n20 20    t   30\n21 21    u   31\n22 22    v   32\n23 23    w   33\n24 24    x   34\n25 25    y   35\n26 26    z   36\n27 27 &lt;NA&gt;   37\n28 28 &lt;NA&gt;   38\n29 29 &lt;NA&gt;   39\n30 30 &lt;NA&gt;   40\n\ndf[1:5,\"col1\"]\n\n[1] \"a\" \"b\" \"c\" \"d\" \"e\"\n\n\n\nR - tidyverse\n\nlibrary(dplyr)\ndf &lt;- tibble::tibble(\n  i = 1:30, \n  col1 = letters[1:30]) |&gt; \n  mutate(col2 = i+10)\n\ndf\n\n# A tibble: 30 × 3\n       i col1   col2\n   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;\n 1     1 a        11\n 2     2 b        12\n 3     3 c        13\n 4     4 d        14\n 5     5 e        15\n 6     6 f        16\n 7     7 g        17\n 8     8 h        18\n 9     9 i        19\n10    10 j        20\n# ℹ 20 more rows\n\ndf |&gt; \n  slice(1:5) |&gt; \n  select(col1)\n\n# A tibble: 5 × 1\n  col1 \n  &lt;chr&gt;\n1 a    \n2 b    \n3 c    \n4 d    \n5 e"
+  },
+  {
+    "objectID": "comparacao_py_r.html#salvando-objetos-em-disco",
+    "href": "comparacao_py_r.html#salvando-objetos-em-disco",
+    "title": "Python versus R? Python no R!",
+    "section": "Salvando objetos em disco",
+    "text": "Salvando objetos em disco\nR\nsaveRDS(nome_objeto, \"nome_do_arquivo.Rds\")\nnome_objeto &lt;- loadRDS(\"nome_do_arquivo.Rds\")\nPython\nwith open(\"nome_do_arquivo.pkl\", \"wb\") as file:\n    pickle.dump(nome_objeto, file)\n\nwith open(\"nome_do_arquivo.pkl\", \"rb\") as file:\n    nome_objeto = pickle.load(file)\nnome_objeto.to_pickle(\"nome_do_arquivo.pkl\")\nnome_objeto = pd.read_pickle(\"nome_do_arquivo.pkl\")\nhttps://docs.python.org/3/library/pickle.html\n\n\n\n\nWickham, Hadley. 2015. Advanced R. chapman; hall/CRC.\n\n\n———. 2019. Advanced R. Second. chapman; hall/CRC."
+  }
+]

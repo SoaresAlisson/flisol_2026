@@ -1,0 +1,53 @@
+/* Autor */
+/* div.author {/* h1.title { */ 
+h1.title {
+/* div.date {  */
+  /* background-image: url(www/qrcode.png), url(www/qrcode.png); */
+  background-image: url(img/FLISoL.png);
+  background-repeat: no-repeat;
+  /* background-position: right; */
+  /* background-position: left center; */
+  background-position: center;
+  /* padding-left: 90px; */
+  padding-top: 250px;
+  /* padding-bottom: 300px; */
+  /* background-position: bottom; */
+  background-size: 300px;
+}
+
+/* não funciona */
+h2.title {
+  background-image: url(img/reticulate.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  padding-bottom: 050px;
+  /* background-position: bottom; */
+  background-size: 200px;
+}
+
+/* https://chat.deepseek.com/a/chat/s/9b1e311f-1ca3-4767-8579-8114d6fb3291 */
+code.sourceCode.r::before {
+  content: 'R';
+  float: right;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 0.2rem;
+}
+
+code.sourceCode.python::before {
+  content: 'Python';
+  float: right;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 0.2rem;
+}
+
+code.sourceCode.bash::before {
+  content: 'Bash';
+  float: right;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 0.2rem;
+}
+
+/* Add more languages as needed */
