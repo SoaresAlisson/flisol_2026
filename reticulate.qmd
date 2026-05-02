@@ -111,7 +111,6 @@ os.listdir(".")
 :::
 ::: {.column width="50%"}
 ```{r listdir}
-# Python: import os as os
 os <- import("os")
 os$listdir(".")
 ```

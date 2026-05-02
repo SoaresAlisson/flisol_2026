@@ -34,4 +34,7 @@ format:
     #theme: dark
     # footer: '[https://{{< meta prerelease-subdomain >}}quarto.org](https://{{< meta prerelease-subdomain >}}quarto.org)'
     footer: 'FlISoL 2026 - "Python _versus_ R? Python no R!" - Alisson Soares'
+project:
+  type: website
+  output-dir: docs
 css: style.css

@@ -1,17 +1,14 @@
 # Comparações Python e R
 
 
+<!-- ::: {.fragment .strike} --> 
+
+
 - R: linguagem feita por estatísticos; Python: uso geral 
-
-::: {.fragment .strike}
-
-- R é linguagem funcional, Python é POO
-
-:::
-
-- R é __predominantemente__ funcional, Python é __predominantemente__ POO
+- R é linguagem funcional, Python é POO?
+- Na verdade, R é __predominantemente__ funcional, Python é __predominantemente__ POO
 - R possui pipe nativo e o magrittr; Python possui método encadeados 
-- R é vetorizado, o que significa menos for loops, menos código escrito 
+- R é vetorizado, o que significa menos loops, menos código escrito
 - **Identação**: Python:importa; R:não importa
 - **Ambientes virtuais**: Python: crucial; R: menos importante.
 - Muitas pessoas preferem não escolher entre uma e outra, mas usar ambas em diferentes partes do workflow.
@@ -80,7 +77,8 @@ ver [@wickham:advancedR]
 ## POO no R 
 
 Funcional:  
-   S3 S4 S7 
+   S3 S4 S7  
+
 Encapsulada:  
   RC
 
@@ -89,15 +87,18 @@ Encapsulada:
 :::: {.columns}
 ::: {.column width="50%"}
 POO Funcional 
-```{{r }}
+```{r }
 #| echo: true
+#| eval: false
 summary(x)
 x <- modify(x)
 ```
 :::
 ::: {.column width="50%"}
 POO Encapsulada
-```{{r }}
+```{r poo encapsulada}
+#| echo: true
+#| eval: false
 x$summary()
 x$modify()
 trim(x)
@@ -105,6 +106,39 @@ trim(x)
 funções e métodos podem ou não mudar x
 ::: 
 ::::
+
+## Modos de rodar R 
+
+:::: {.columns}
+::: {.column width="50%"}
+Modo 1  
+Chamando funções de modo _ad hoc_
+```{r r:pacote::fun}
+#| echo: true
+#| eval: false
+meus_dados  |>
+  dplyr::filter(coluna1 == "valorx") |> 
+  dplyr::mutate(nova_coluna = coluna3 + coluna4) |> 
+  dplyr::select(coluna1, nova_coluna)
+```
+:::
+::: {.column width="50%"}
+Modo 2  
+Carregando o pacote/biblioteca anteriormente
+```{r R:library}
+#| echo: true
+#| eval: false
+library(dplyr)
+
+meus_dados  |> 
+  filter(coluna1 == "valorx") |> 
+  mutate(nova_coluna = coluna3 + coluna4) |> 
+  select(coluna1, nova_coluna)
+
+```
+::: 
+::::
+
 
 ## Programação funcional em Python
 
@@ -114,9 +148,9 @@ funções e métodos podem ou não mudar x
 
 
 
-## Pyhton e R - comparando
+## Pyhton e R - Algumas comparações 
 
-## índices 
+## Índices 
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -130,9 +164,28 @@ print(ind[1]) # 2
 ::: {.column width="50%"}
 
 ```{r r_índices}
-ind <- 1:5 
+ind <- 1:5
 ind[1] # 1
 ind[2] # 2
+```
+::: 
+::::
+
+## vetorizado 
+
+:::: {.columns}
+::: {.column width="50%"}
+```{python lambda}
+numeros = [1, 2, 3, 4, 5]
+numeros * 2
+novos_numeros = list(map(lambda x: x * 2, numeros))
+print(novos_numeros)
+```
+:::
+::: {.column width="50%"}
+```{r vetorizado}
+numeros <- 1:5
+numeros * 2
 ```
 ::: 
 ::::
